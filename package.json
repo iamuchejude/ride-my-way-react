@@ -1,0 +1,33 @@
+{
+  "name": "ride-my-way-react",
+  "version": "1.0.0",
+  "description": "Ride-my-way App",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamuchejude/ride-my-way-react.git"
+  },
+  "author": "Uche Jude",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamuchejude/ride-my-way-react/issues"
+  },
+  "homepage": "https://github.com/iamuchejude/ride-my-way-react#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.10.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
