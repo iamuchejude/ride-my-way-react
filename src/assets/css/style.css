@@ -10,19 +10,22 @@ html, body {
     background: linear-gradient(0deg, 0deg, #f3f3f3), url();
 }
 
-#wrapper {
-    margin: 40px auto 80px;
+#wrapper.auth {
+    margin: 60px auto 80px;
+    position: relative;
     background: #fff;
     width: 300px;
 }
 
 /* Header Style */
-#wrapper header {
+#wrapper.auth header {
     text-align: center;
+    background: transparent !important;
+    border: none !important;
     padding: 5px;
 }
 
-#wrapper header h1 {
+#wrapper.auth header h1 {
     border: 1px solid var(--primaryBlack);
     border-radius: 50%;
     width: 55px;
@@ -34,13 +37,13 @@ html, body {
     cursor: pointer;
 }
 
-#wrapper header h1:hover, #wrapper header h1:hover > span {
+#wrapper.auth header h1:hover, #wrapper header h1:hover > span {
     background: var(--primaryBlack);
     color: var(--primaryWhite);
     border: 1px solid var(--primaryBlack);
 }
 
-#wrapper header h1 span {
+#wrapper.auth header h1 span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,17 +69,62 @@ footer {
 /* End of Footer Style */
 
 /* Container Styles */
-.container {
+#wrapper.auth .container {
     padding: 10px;
     display: none;
 }
 
-.container#index {
+#wrapper.auth .container form {
+    position: relative;
+    padding: 0 5px;
+}
+
+#wrapper.auth .container form .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+#wrapper.auth .container form .loader .spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#wrapper.auth .container form button:disabled {
+    background: #ccc;
+    border: #ccc;
+    color: #eee;
+    cursor: not-allowed;
+}
+
+#wrapper.auth .container form .message {
+    padding: 10px;
+    font-size: small;
+}
+
+#wrapper.auth .container form .message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+#wrapper.auth .container form .message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+#wrapper.auth .container#index {
     display: block;
     text-align: center;
 }
 
-.container:target {
+#wrapper.auth .container:target {
     display: block;
     -webkit-transition: 1s;
        -moz-transition: 1s;
@@ -85,12 +133,12 @@ footer {
             transition: 1s;
 }
 
-.container p {
+#wrapper.auth .container p {
     text-align: center;
 }
 
 @media only screen and (max-width: 340px) {
-    #wrapper {
+    #wrapper.auth {
         width: 95%;
     }
 }

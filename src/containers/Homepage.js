@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import HomepageHeader from '../../components/Headers/HomepageHeader';
+import '../assets/css/generalResponsive.css';
+import '../assets/css/indexStyle.css';
+import '../assets/css/indexResponsive.css';
+import HomepageHeader from '../components/Headers/HomepageHeader';
 
 class Home extends Component {
   constructor(props) {
@@ -11,19 +14,19 @@ class Home extends Component {
     return (
       <Fragment>
         <HomepageHeader />
-        <div id="wrapper">
-        
+
+        <div id="wrapper" className="land">
           <section id="hero">
             <div className="hero-contents">
-              <h1>Get affordable ride offers</h1>
-              <p>Get comfortable and affordable ride offers to your destination</p>
+              <h1>Get ride offers</h1>
+              <p>Get comfortable ride offers to your destination</p>
             </div>
             <div className="hero-contents">
-              <h1>Offer rides to earn money</h1>
-              <p>Offer to ride with someone to earn money</p>
+              <h1>Offer rides</h1>
+              <p>Offer to ride with someone</p>
               <div className="actions">
                 <a href="#about" className="scroll-trigger btn btn-primary btn-rounded" data-section="#about">About</a>
-                <a href="./auth.html#register" className="btn btn-primary btn-rounded">Join Now</a>
+                <a href="/auth#register" className="btn btn-primary btn-rounded">Join Now</a>
               </div>
             </div>
           </section>
@@ -134,8 +137,8 @@ class Home extends Component {
               </div>
             </div>
           </section>
-          
         </div>
+
       </Fragment>
     )
   }

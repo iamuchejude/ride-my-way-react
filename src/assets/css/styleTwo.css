@@ -106,8 +106,6 @@ header #show-notification {
 
 header #show-notification .on {
     position: absolute;
-    /* background: var(--primaryBlack);
-    border: var(--primaryBlack); */
     background: rgb(206, 44, 44);
     border: rgb(206, 44, 44);
     width: 10px;
