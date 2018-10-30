@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../assets/css/general-responsive.css';
-import '../../assets/css/index-style.css';
-import '../../assets/css/index-responsive.css';
 
 const HomepageHeader = () => {
   return (
-    <header className="clear">
+    <header className="clear main">
       <div id="logo" className="left">
         <Link to="/">
           <h2><span><i className="lnr lnr-car"></i></span></h2>
@@ -26,7 +23,7 @@ const HomepageHeader = () => {
           </a>
         </div>
         <div id="login-btn">
-          <Link to="/auth#login">
+          <Link to="/auth">
             <button className="btn btn-rounded btn-secondary btn-medium">Login</button>
           </Link>
         </div>

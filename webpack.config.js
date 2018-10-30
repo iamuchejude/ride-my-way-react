@@ -19,7 +19,7 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
         }
       },
       {
@@ -36,8 +36,8 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          "css-loader",
           "style-loader",
+          "css-loader",
         ]
       }
     ]
