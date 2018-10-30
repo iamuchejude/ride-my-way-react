@@ -1,13 +1,9 @@
-// import env from 'dotenv';
 import {
   REGISTER_FAILED,
   REGISTER_SUCCESS,
   REGISTER_REQUEST,
-} from './types/register';
+} from './types/auth';
 
-// env.config();
-
-// const API_HOST = process.env.API_HOST;
 const API_HOST = 'http://localhost:8888/api/v1'
 
 export const registerFailed = message => ({
