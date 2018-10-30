@@ -1,41 +1,54 @@
-import webpack from 'webpack';
-import HtmlWebPackPlugin from 'html-webpack-plugin';
-
-const { DefinePlugin } = webpack;
-const host = process.env.NODE_ENV === 'production' ? 'https://ride-my-way-andela/api/v1' : 'http://localhost:9998/api/v1';
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 const config = {
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true,
+  },
   entry: {
-    filename: './src/app.js',
+    filename: './src/index.js',
   },
   output: {
-    filename: 'bundle.js',
     publicPath: '/',
+    filename: 'build.js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: {
+              minimize: true
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
-      },
-    ],
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
+    ]
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./public/index.html",
     }),
-    new DefinePlugin({
-      __API__: host,
-    }),
-  ],
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+  ]
 };
 
-export default config;
+module.exports = config;
