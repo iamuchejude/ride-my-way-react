@@ -23,9 +23,9 @@ const HomepageHeader = () => {
           </a>
         </div>
         <div id="login-btn">
-          <Link to="/auth">
+          <a href="/auth">
             <button className="btn btn-rounded btn-secondary btn-medium">Login</button>
-          </Link>
+          </a>
         </div>
       </div>
     </header>

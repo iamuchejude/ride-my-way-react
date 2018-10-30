@@ -12,6 +12,17 @@ const initialState = {
     status: null,
     message: null,
     loading: false,
+  },
+  user: {
+    isAuthenticated: true,
+    user: {
+      name: 'Uche Jude',
+      email: 'iamuchejude@gmail.com',
+      photo: null,
+      phone: null,
+      id: 'y9zT1zzeYd',
+    },
+    rides: []
   }
 }
 
