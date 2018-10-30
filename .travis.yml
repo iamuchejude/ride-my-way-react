@@ -1,0 +1,15 @@
+language: node.js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+before_install:
+  - chmod +x build.sh
+  - npm update
+before_script:
+  - npm install
+script:
+  - npm run test
+after_success:
+  - npx codecov

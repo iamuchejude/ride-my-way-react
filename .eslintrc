@@ -1,0 +1,26 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "node": true,
+        "es6": true,
+        "browser": true,
+        "jest": true
+    },
+    "rules": {
+        "react/jsx-no-bind": [
+            "error",
+            {
+                "allowArrowFunctions": true,
+                "allowBind": false,
+                "ignoreRefs": true
+            }
+        ]
+    }
+}

@@ -4,7 +4,11 @@
   "description": "Ride-my-way App",
   "main": "src/app.js",
   "scripts": {
-    "build": "webpack --mode=production"
+    "start": "webpack-dev-server --config webpack.config.js --mode development --open --hot",
+    "build": "webpack --mode=production",
+    "lint": "eslint src/**/*.js",
+    "test": "jest --verbose --coverage",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -19,15 +23,31 @@
   "dependencies": {
     "dotenv": "^6.0.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.10.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest-cli": "^23.6.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "nyc": "^13.1.0",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
