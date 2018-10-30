@@ -1,25 +1,25 @@
 import {
-  REGISTER_FAILED,
-  REGISTER_SUCCESS,
-  REGISTER_REQUEST,
+  LOGIN_FAILED,
+  LOGIN_SUCCESS,
+  LOGIN_REQUEST,
 } from '../actions/types/auth';
 import initialState from '../store/initialState';
 
-const register = (state = initialState.register, action) => {
-  switch(action.type) {
-    case REGISTER_FAILED:
+const login = (state = initialState.login, action) => {
+  switch (action.type) {
+    case LOGIN_FAILED:
       return {
         ...state,
         status: 'error',
         message: action.payload,
       }
-    case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
         status: 'success',
         message: action.payload,
       }
-    case REGISTER_REQUEST:
+    case LOGIN_REQUEST:
       return {
         ...state,
         loading: action.payload,
@@ -29,4 +29,4 @@ const register = (state = initialState.register, action) => {
   }
 }
 
-export default register;
+export default login;

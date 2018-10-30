@@ -7,6 +7,11 @@ const initialState = {
     status: null,
     message: null,
     loading: false,
+  },
+  login: {
+    status: null,
+    message: null,
+    loading: false,
   }
 }
 

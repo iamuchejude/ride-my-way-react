@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Register from '../components/Auth/Register';
+import Login from '../components/Auth/Login';
 import '../assets/css/style.css';
 
 const Auth = () => (
@@ -16,6 +17,9 @@ const Auth = () => (
     </header>
     <div className="container" id="register">
       <Register />
+    </div>
+    <div className="container" id="login">
+      <Login />
     </div>
   </div>
 );
