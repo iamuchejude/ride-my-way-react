@@ -4,8 +4,6 @@ import {
   REGISTER_REQUEST,
 } from './types/auth';
 
-const API_HOST = 'http://localhost:8888/api/v1'
-
 export const registerFailed = message => ({
   type: REGISTER_FAILED,
   payload: message,

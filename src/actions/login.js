@@ -4,8 +4,6 @@ import {
   LOGIN_REQUEST,
 } from './types/auth';
 
-const API_HOST = 'http://localhost:8888/api/v1'
-
 export const loginFailed = message => ({
   type: LOGIN_FAILED,
   payload: message,

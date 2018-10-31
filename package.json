@@ -7,7 +7,7 @@
     "heroku-postbuild": "npm run build",
     "start": "npx serve -s ./dist/",
     "build": "webpack --mode=production",
-    "dev": "webpack-dev-server --config webpack.config.js --mode development --open --hot",
+    "dev": "webpack-dev-server --config webpack.config.js --mode=development --open --hot",
     "lint": "eslint src/**/*.js",
     "test": "jest --verbose --coverage",
     "test:watch": "jest --watch"

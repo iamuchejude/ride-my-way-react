@@ -1,5 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+
+const apiHost = '"https://ride-my-way-andela.herokuapp.com/api/v1"';
 
 const config = {
   devServer: {
@@ -46,6 +49,9 @@ const config = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
     }),
+    new webpack.DefinePlugin({
+      API_HOST: apiHost,
+    })
   ]
 };
 
