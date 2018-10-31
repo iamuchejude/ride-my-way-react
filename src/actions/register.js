@@ -2,6 +2,7 @@ import {
   REGISTER_FAILED,
   REGISTER_SUCCESS,
   REGISTER_REQUEST,
+  UPDATE_AUTH,
 } from './types/auth';
 
 export const registerFailed = message => ({
@@ -19,6 +20,11 @@ export const registerRequest = state => ({
   payload: state,
 });
 
+export const updateAuth = data => ({
+  type: UPDATE_AUTH,
+  payload: data,
+})
+
 const register = data => dispatch => {
   dispatch(registerRequest(true));
   return fetch(`${API_HOST}/auth/register`, {
@@ -34,7 +40,12 @@ const register = data => dispatch => {
       dispatch(registerFailed(data.message));
       return dispatch(registerRequest(false));
     }
-    dispatch(registerSuccess(data.message));
+    const { user, token, message } = data;
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify({ ...user }));
+    localStorage.setItem('isAuthenticated', true);
+    dispatch(updateAuth({ isAuthenticated: true, user: { ...user } }));
+    dispatch(registerSuccess(message));
     return dispatch(registerRequest(false));
   })
   .catch(error => {

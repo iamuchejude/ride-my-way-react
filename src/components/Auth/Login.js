@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import loginUser from '../../actions/login';
@@ -27,8 +28,13 @@ class Login extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { login } = this.props;
+    const { login, auth } = this.props;
     const { loading, status, message } = login;
+    const { isAuthenticated } = auth;
+
+    if (isAuthenticated) {
+      return <Redirect to="/dashboard" />
+    }
 
     return (
       <Fragment>
@@ -65,12 +71,14 @@ class Login extends Component {
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
   login: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => {
-  const { login } = state;
+  const { login, auth } = state;
   return {
     login,
+    auth,
   }
 }
 

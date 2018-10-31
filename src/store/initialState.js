@@ -12,6 +12,10 @@ const initialState = {
     status: null,
     message: null,
     loading: false,
+  },
+  auth: {
+    isAuthenticated: false,
+    user: {},
   }
 }
 

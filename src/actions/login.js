@@ -2,6 +2,7 @@ import {
   LOGIN_FAILED,
   LOGIN_SUCCESS,
   LOGIN_REQUEST,
+  UPDATE_AUTH,
 } from './types/auth';
 
 export const loginFailed = message => ({
@@ -19,6 +20,11 @@ export const loginRequest = state => ({
   payload: state,
 });
 
+export const updateAuth = data => ({
+  type: UPDATE_AUTH,
+  payload: data,
+});
+
 const login = data => dispatch => {
   dispatch(loginRequest(true));
   return fetch(`${API_HOST}/auth/login`, {
@@ -34,7 +40,12 @@ const login = data => dispatch => {
         dispatch(loginFailed(data.message));
         return dispatch(loginRequest(false));
       }
-      dispatch(loginSuccess(data.message));
+      const { user, token, message } = data;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify({ ...user }));
+      localStorage.setItem('isAuthenticated', true);
+      dispatch(updateAuth({ isAuthenticated: true, user: { ...user } }));
+      dispatch(loginSuccess(message));
       return dispatch(loginRequest(false));
     })
     .catch(error => {

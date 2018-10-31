@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router-dom';
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -28,8 +29,14 @@ class Register extends Component {
 
   render() {
     const { name, email, password } = this.state;
-    const { register } = this.props;
+    const { register, auth } = this.props;
     const { loading, status, message } = register;
+    const { isAuthenticated } = auth;
+
+    if (isAuthenticated) {
+      return <Redirect to="/dashboard" />
+    }
+
 
     return (
       <Fragment>
@@ -70,12 +77,14 @@ class Register extends Component {
 Register.propTypes = {
   dispatch: PropTypes.func.isRequired,
   register: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => {
-  const { register } = state;
+  const { register, auth } = state;
   return {
     register,
+    auth,
   }
 }
 
