@@ -6,7 +6,7 @@ const configureStore = () => createStore (
   rootReducer,
   compose (
     applyMiddleware(thunk),
-    typeof window === 'object' && typeof window.devToolsExtension !== undefined ? window.devToolsExtension() : () => new Error('No redux dev tool'),
+    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f,
   ),
 );
 
